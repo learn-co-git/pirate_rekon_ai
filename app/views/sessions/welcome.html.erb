@@ -4,6 +4,6 @@
   <h2>You are Logged In, <%= current_user.name %></h2>
 <%end%>
 
-<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Login", '/signin', method: :get%>
 <%= button_to "Sign Up", '/users/new', method: :get%>
 <%= button_to "Logout", '/logout', method: :get%>

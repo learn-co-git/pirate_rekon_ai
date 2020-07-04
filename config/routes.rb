@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  get '/signin' => 'sessions#new'
+  post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-  get '/auth/:provider/callback' => 'sessions#github'
+  get 'auth/auth0/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
+  get '/dashboard' => 'sessions#github'
 
   resources :users
   resources :images

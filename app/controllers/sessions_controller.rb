@@ -7,8 +7,10 @@ class SessionsController < ApplicationController
   end
 
   def github
-     @user = User.find_or_create_by_omniauth(email: auth['info']['email']) do |u|
-         u.password = auth['uid']
+    auth = session[:userinfo]
+    binding.pry
+     @user = User.find_or_create_by(email: auth['info']['email']) do |u|
+         u.password = callback['uid']
      end
      session[:user_id] = @user.id
 
@@ -22,7 +24,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "Invalid credentials. Please check your name and password."
-      redirect_to login_path
+      redirect_to 'signin'
     end
   end
 
@@ -34,8 +36,9 @@ class SessionsController < ApplicationController
 
   private
 
-  def auth
-    request.env['omniauth.auth']
-  end
+  # def callback
+  #   auth = session[:userinfo]
+  #   binding.pry
+  # end
 
 end
