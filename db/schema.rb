@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_220453) do
+ActiveRecord::Schema.define(version: 2020_07_06_054654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_220453) do
   create_table "images", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.integer "user_id"
+    t.bigint "user_id_id"
     t.string "public_id"
     t.string "box_width"
     t.string "box_height"
@@ -70,12 +70,22 @@ ActiveRecord::Schema.define(version: 2020_06_29_220453) do
     t.string "label"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id_id"], name: "index_images_on_user_id_id"
   end
 
   create_table "reports", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "report_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "address"
+    t.string "telephone_number"
+    t.string "incident_date"
+    t.text "summary"
+    t.bigint "user_id_id"
+    t.string "vehicle_urls"
+    t.string "image_urls"
+    t.text "data"
+    t.index ["user_id_id"], name: "index_reports_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,14 +97,17 @@ ActiveRecord::Schema.define(version: 2020_06_29_220453) do
   end
 
   create_table "vehicles", force: :cascade do |t|
+    t.integer "vehicle_id"
     t.string "make"
     t.string "model"
     t.integer "year"
     t.string "plate"
     t.string "color"
     t.text "background"
+    t.bigint "user_id_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id_id"], name: "index_vehicles_on_user_id_id"
   end
 
 end

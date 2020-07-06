@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   skip_before_action :authorized, only: [:new, :create] #allows these 2 methods to skip authorized
   def new
     @user = User.new
@@ -17,8 +18,7 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find_by_id(params[:id])
-   binding.pry
- end
+  end
 
   private
 

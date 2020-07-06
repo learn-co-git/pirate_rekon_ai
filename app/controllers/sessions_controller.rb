@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 
   def github
     auth = session[:userinfo]
-    binding.pry
      @user = User.find_or_create_by(email: auth['info']['email']) do |u|
          u.password = callback['uid']
      end

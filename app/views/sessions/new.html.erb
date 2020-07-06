@@ -1,5 +1,5 @@
 
-<h1>Sign In</h1>
+<!-- <h1>Sign In</h1>
 <%= form_tag '/signin' do %>
 Email: <%= email_field_tag :email, "" %><br>
 Password: <%= password_field_tag :password, "" %>
@@ -7,4 +7,32 @@ Password: <%= password_field_tag :password, "" %>
 
   <% end %>
 
-  <%= button_to 'Login with Github', 'auth/auth0', method: :post %>
+  <%= button_to 'Login with Github', 'auth/auth0', method: :post %> -->
+
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Welcome back!</h3>
+                <div class="form-label-group">
+                <%= form_tag '/signin' do %>
+                <h3>Email</h3>
+                 <p><%= email_field_tag :email, placeholder="" %><br></p>
+                 <h3>Password</h3>
+                 <p><%= password_field_tag :password, placeholder="" %></p>
+                <%= submit_tag "Login" %>
+                <% end %>
+                <br><br>
+                <%= button_to 'Login with Github', 'auth/auth0', method: :post %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

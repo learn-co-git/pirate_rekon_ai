@@ -3,7 +3,7 @@ class CreateImages < ActiveRecord::Migration[6.0]
     create_table :images do |t|
       t.string :name
       t.string :url
-      t.references :user, foreign_key: true 
+      t.references :user_id
       t.string :public_id
       t.string :box_width
       t.string :box_height
