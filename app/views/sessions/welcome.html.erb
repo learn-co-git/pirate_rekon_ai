@@ -1,9 +1,12 @@
 <h1>Welcome</h1>
 
 <% if logged_in? %>
-  <h2>You are Logged In, <%= current_user.name %></h2>
+  <h3>Your currently logged in</h3>
+   <a href= '/users/<%="#{current_user.id}"%>'>Home</a><br><br>
+  <% else %>
+  <%= button_to "Login", '/signin', method: :get%>
+  <%= button_to "Sign Up", '/users/new', method: :get%>
 <%end%>
 
-<%= button_to "Login", '/signin', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
+
 <%= button_to "Logout", '/logout', method: :get%>

@@ -35,9 +35,8 @@ class SessionsController < ApplicationController
 
   private
 
-  # def callback
-  #   auth = session[:userinfo]
-  #   binding.pry
-  # end
+  def user_params
+  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 
 end
