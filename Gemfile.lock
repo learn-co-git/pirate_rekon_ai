@@ -108,6 +108,7 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    curb (0.9.10)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
@@ -297,6 +298,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   cloudinary
+  curb
   dotenv-rails
   figaro
   httparty
@@ -313,6 +315,7 @@ DEPENDENCIES
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  rest-client
   sass-rails (>= 6)
   selenium-webdriver
   spring
