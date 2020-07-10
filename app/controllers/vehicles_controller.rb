@@ -5,11 +5,7 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    data = Vehicle.add(current_user)
-    (0...data.length).each do |i|
-      carnet = data[i]["carnet"][0][0]
-      auto = data[i]["vehicles"]
-      Vehicle.new(:make => carnet["make_name"], :model => carnet["model_name"], :year => carnet["years"], :plate => data[i]["ocr"][0], :color => "", :background => "", :user_id => current_user.id,  )
+    Vehicle.add(current_user)
     debugger
   end
 
