@@ -17,6 +17,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    CarRegistrationUSA (0.0.2)
     actioncable (6.0.3.2)
       actionpack (= 6.0.3.2)
       nio4r (~> 2.0)
@@ -292,6 +293,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  CarRegistrationUSA (~> 0.0.2)
   aws-sdk-rekognition
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)

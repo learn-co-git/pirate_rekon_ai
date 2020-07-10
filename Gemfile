@@ -41,6 +41,7 @@ gem 'httparty'
 gem 'multipart-post'
 gem 'curb'
 gem 'rest-client'
+gem 'CarRegistrationUSA', '~> 0.0.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
