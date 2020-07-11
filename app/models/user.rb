@@ -24,10 +24,9 @@ class User < ApplicationRecord
 
      user.save
    end
- end
+  end
 
   def create
-
   end
-  
+
 end

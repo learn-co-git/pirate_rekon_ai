@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :cloud_search_vehicles
   helper_method :user_vehicles
+  helper_method :cloud_search
 
   def index
   end
@@ -23,9 +24,9 @@ class ApplicationController < ActionController::Base
      return head(:forbidden) unless session.include? :user_id
   end
 
-  def cloud_search(session)
+  def cloud_search
     Cloudinary::Search
-    .expression("folder=#{current_user(session).name}")
+    .expression("folder=#{current_user.id}")
     .execute
   end
 
@@ -38,6 +39,10 @@ class ApplicationController < ActionController::Base
   def user_vehicles
     vehicles = cloud_search_vehicles
     vehicles["resources"].length
+  end
+
+  def user_images
+      Image.all.select {|picture| current_user.id == picture.user_id}
   end
 
 end

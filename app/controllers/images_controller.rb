@@ -1,53 +1,35 @@
 class ImagesController < ApplicationController
 
 
-  # GET /images
-
   def index
-    @images = Image.all
+    if params[:report_id]
+      @images = Image.find(params[:report_id]).images
+    else
+      @images = Image.all
+    end
   end
-
-  # GET /images/1
 
   def show
+    @image = Image.find(params[:id])
   end
 
-  # GET /images/new
   def new
     @image = Image.new
+    @user = current_user
   end
 
-  # GET /images/1/edit
   def edit
   end
 
-  # POST /images
-
   def create
-    @image = Image.new(image_params)
-
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
+    result = cloud_search
+    file = result["resources"].flatten
+    id = current_user.id
+    Image.add(file, user_images, id)
   end
-
-  # PATCH/PUT /images/1
 
   def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
   end
-
-  # DELETE /images/1
 
   def destroy
     @image.destroy
