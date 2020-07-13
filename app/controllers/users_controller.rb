@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  layout "user"
 
   skip_before_action :authorized, only: [:new, :create] #allows these 2 methods to skip authorized
   def new

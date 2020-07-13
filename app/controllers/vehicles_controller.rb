@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  layout "user"
 
   def index
     if params[:report_id]
@@ -18,9 +19,6 @@ class VehiclesController < ApplicationController
 
   def create
     Vehicle.add(current_user)
+    redirect_to '/vehicles'
   end
-
-
-
-
 end

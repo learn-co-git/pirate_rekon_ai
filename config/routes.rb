@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :reports, only: [:show] do
     resources :images, only: [:show, :index]
     resources :vehicles, only: [:show, :index]
+    resources :users, only: [:show]
   end
 
   resources :images, only:
@@ -23,7 +24,10 @@ Rails.application.routes.draw do
   resources :vehicles, only:
   [:index, :show, :new, :create, :edit, :update]
 
-  resources :users
-  resources :reports
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users, only:
+  [:new, :show, :create, :update]
+
+  resources :reports, only:
+  [:index, :show, :new, :create, :edit, :update]
+
 end

@@ -2,12 +2,19 @@
 <html>
   <head>
     <title>PirateRekonAi</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div class="container">
+    <h1 style="color:DarkOrange;">Pirate Rekon</h1>
+    <header><img src="https://res.cloudinary.com/argustwo/image/upload/v1592381476/Argus/Rekon_main.jpg" style="width:350px;height:300px;" class="img-responsive main-image"></header>
+    <div class="col-md-8 col-md-offset-2">
 
   <body>
     <%= yield %>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "application"
 
   skip_before_action :authorized, only: [:new, :create, :github, :welcome]
 

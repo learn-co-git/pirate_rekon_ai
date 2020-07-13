@@ -22,10 +22,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    result = cloud_search
-    file = result["resources"].flatten
-    id = current_user.id
-    Image.add(file, user_images, id)
+    Image.add(current_user.id)
   end
 
   def update
